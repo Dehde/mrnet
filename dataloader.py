@@ -19,8 +19,9 @@ class MRDataset(data.Dataset):
         self.train = train
         if self.train:
             self.folder_path = self.root_dir + 'train/{0}/'.format(plane)
-            self.records = pd.read_csv(
-                self.root_dir + 'train-{0}.csv'.format(task), header=None, names=['id', 'label'])
+            csv_path = self.root_dir + 'train-{0}.csv'.format(task)
+            print(csv_path)
+            self.records = pd.read_csv(csv_path, header=None, names=['id', 'label'])
         else:
             transform = None
             self.folder_path = self.root_dir + 'valid/{0}/'.format(plane)
