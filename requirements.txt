@@ -3,3 +3,4 @@ torchvision
 tqdm
 tensorboardX
 sklearn
+fastai
