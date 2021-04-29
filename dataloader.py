@@ -60,11 +60,11 @@ class MRDataset(data.Dataset):
             array = torch.FloatTensor(array)
 
         # if label.item() == 1:
-        #     weight = np.array([self.weights[1]])
-        #     weight = torch.FloatTensor(weight)
+        #      weight = np.array([self.weights[1]])
+        #      weight = torch.FloatTensor(weight)
         # else:
-        #     weight = np.array([self.weights[0]])
-        #     weight = torch.FloatTensor(weight)
+        #      weight = np.array([self.weights[0]])
+        #      weight = torch.FloatTensor(weight)
 
         return array, label, self.weights
 
