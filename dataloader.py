@@ -49,9 +49,9 @@ class MRDataset(data.Dataset):
         array = np.load(self.paths[index])
         label = self.labels[index]
         if label == 1:
-            label = torch.FloatTensor([[0, 1]])
+            label = torch.FloatTensor([0, 1])
         elif label == 0:
-            label = torch.FloatTensor([[1, 0]])
+            label = torch.FloatTensor([1, 0])
 
         if self.transform:
             array = self.transform(array)
@@ -66,5 +66,5 @@ class MRDataset(data.Dataset):
         #      weight = np.array([self.weights[0]])
         #      weight = torch.FloatTensor(weight)
 
-        return array, label, self.weights
+        return array, label
 
