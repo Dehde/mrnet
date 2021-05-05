@@ -27,6 +27,7 @@ class MRDataset(data.Dataset):
             self.folder_path = self.root_dir + 'valid/{0}/'.format(plane)
             self.records = pd.read_csv(
                 self.root_dir + 'valid-{0}.csv'.format(task), header=None, names=['id', 'label'])
+        # self.records = self.records[:100]
 
         self.records['id'] = self.records['id'].map(
             lambda i: '0' * (4 - len(str(i))) + str(i))
