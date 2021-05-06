@@ -68,4 +68,3 @@ class MRDataset(data.Dataset):
         #      weight = torch.FloatTensor(weight)
 
         return array, label
-
