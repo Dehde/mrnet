@@ -6,3 +6,4 @@ notebooks/
 __pycache__/
 dash/assets/
 dash/CAMS/
+.ipynb_checkpoints
