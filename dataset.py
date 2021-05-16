@@ -48,7 +48,7 @@ class MRDataset(data.Dataset):
 
     def __getitem__(self, index):
         array = np.load(self.paths[index])
-        label = self.labels[index]
+        label = torch.FloatTensor(self.labels[index])
         if label == 1:
             label = torch.FloatTensor([0, 1])
         elif label == 0:
@@ -107,7 +107,7 @@ class MRDatasetMerged(data.Dataset):
 
     def __getitem__(self, index):
         mri_series = self.load_merged_arr(index)
-        label = self.labels[index]
+        label = torch.FloatTensor(self.labels[index])
 
         if self.transform:
             array = self.transform(mri_series)

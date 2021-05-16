@@ -10,7 +10,7 @@ class MRNet(pl.LightningModule):
         super().__init__()
         self.pretrained_model = models.alexnet(pretrained=True)
         self.pooling_layer = nn.AdaptiveAvgPool2d(1)
-        self.classifer = nn.Linear(256, 2)
+        self.classifer = nn.Linear(256, 3)
 
     def forward(self, x):
         x = torch.squeeze(x, dim=0) 
