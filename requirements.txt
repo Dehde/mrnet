@@ -4,4 +4,3 @@ tqdm
 tensorboardX
 sklearn
 fastai
-jupyter notebook

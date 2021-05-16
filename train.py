@@ -15,7 +15,7 @@ from torchvision import transforms
 import torch.nn.functional as F
 from tensorboardX import SummaryWriter
 
-from dataloader import MRDataset
+from dataset import MRDataset
 import model
 
 from sklearn import metrics
