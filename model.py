@@ -11,7 +11,8 @@ class MRNet(pl.LightningModule):
         self.pretrained_model = models.alexnet(pretrained=True)
         self.pooling_layer = nn.AdaptiveAvgPool2d(1)
         self.classifer = nn.Linear(256, 3)
-        self.sigmoid = F.sigmoid
+        self.sigmoid = torch.sigmoid
+        #self.save_hyperparameters()
 
         self.train_f1 = torchmetrics.F1(num_classes=3)
         self.valid_f1 = torchmetrics.F1(num_classes=3)
@@ -36,7 +37,7 @@ class MRNet(pl.LightningModule):
         loss = self.cross_entropy_loss(logits, y)
         preds = self.sigmoid(logits)
         y_int = y.long()
-        self.log("train_f1", self.train_f1(preds, y_int), on_step=True, on_epoch=True)
+        self.log("train_f1", self.train_f1(preds, y_int), on_step=True, on_epoch=True, prog_bar=True, logger=True)
         # self.log("train_AUC", self.train_auc(preds, y_int), on_step=False, on_epoch=True)
         self.log('train_loss', loss)
         return loss
@@ -47,7 +48,7 @@ class MRNet(pl.LightningModule):
         loss = self.cross_entropy_loss(logits, y)
         preds = self.sigmoid(logits)
         y_int = y.long()
-        self.log("val_f1", self.valid_f1(preds, y_int), on_step=True, on_epoch=True)
+        self.log("val_f1", self.valid_f1(preds, y_int), on_step=True, on_epoch=True, prog_bar=True, logger=True)
         # self.log("val_AUC", self.valid_auc(preds, y_int), on_step=False, on_epoch=True)
         self.log('val_loss', loss)
 
