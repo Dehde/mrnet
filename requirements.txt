@@ -4,3 +4,10 @@ tqdm
 tensorboardX
 sklearn
 fastai
+jupyter
+tqdm
+torch
+torchvision torchaudio
+tensorboardX
+scikit-learn
+pytorch-lightning
