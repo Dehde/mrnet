@@ -5,7 +5,6 @@ tensorboardX
 sklearn
 fastai
 jupyter
-tqdm
 torch
 torchvision
 torchaudio
